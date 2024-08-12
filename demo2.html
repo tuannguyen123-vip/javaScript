@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Cho biết vị trí người dùng 
+    <button onclick="vitri();">Click here</button>
+    <script>
+        function vitri(){
+            if(navigator.geolocation){
+                //Trả về vị trí người dùng
+            navigator.geolocation.getCurrentPosition(hienThiViTri);
+            }else{
+            alert('navigator không hỗ trợ trên trình duyệt');
+            }
+        }
+        function hienThiViTri(){
+            //coords.latitude trả về vị độ
+            //coords.longitude trả về kinh độ
+         alert('Vĩ độ là: ' + vitri.coords.latitude + 'Kinh độ là: ' + vitri.coords.longitude);   
+        }
+    </script>
+</body>
+</html>

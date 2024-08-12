@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <video id="video" width="500px" height="500px">
+    //Thêm controls vào phần video trên sẽ hiện lên các thành công cụ
+    <source src="movie.mp4">
+    </video>
+    <div id= 'control'>
+    <button onclick="playPause();">Play</button>
+    <button onclick="stop();">Stop</button>
+    <button onclick="laplai();">Lặp lại</button>
+    <button onclick="tangVolume();">tangVolume</button>
+    <button onclick="giamVolume();">giamVolume</button>
+    <button onclick="onOffVolume();">Bật tắt volume</button>
+    </div>
+    <script>
+    //Tạo biến video là thẻ video
+     var video = document.getElementById('video');
+     function playPause(){
+        if(video.paused){
+            //Phương thức video đã bị dừng
+            video.play();
+        }else{
+            //Phương thức dừng video
+            video.pause();
+        }
+     }
+
+     function stop(){
+     video.pause();
+     if(video.currentTime){
+     video.currentTime = 0;
+     }
+     }
+
+     function laplai(){
+        video.currentTime = 0;
+        video.play();
+     }
+
+     function tangVolume(){
+     if(video.volume < 1){
+    video.volume = parseFloat(video.volume - 0.1).toFixed(1);
+     }
+     }
+
+     function giamVolume(){
+        if(video.volume > 0){
+        video.volume = parseFloat(video.volume - 0.1).toFixed(1);
+        }
+     }
+
+     function onOffVolume(){
+        if(video.muted){
+        video.muted = false;
+        }else{
+        video.muted = true;
+        }
+     }
+     
+     
+    </script>
+</body>
+</html>

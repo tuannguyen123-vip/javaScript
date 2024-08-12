@@ -5,41 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload="loadAnh();">
-    <img id="anhdep" src="image/anh0.jpg" alt="">
-    <input type="button" value="back" onclick="backAnh();">
-    <input type="button" value="next" onclick="nextAnh();">
-<script>
-    //Bước 1 chuẩn bị các ảnh đặt tên theo thứ tự từ 0-n
-    //Các ảnh phải có cùng đuôi .jpg hoặc png
-  var arrAnh = [];
-  var currentIndex = 0;
-  
-  function loadAnh(){
-   for(var i = 0; i < 5; i++){
-    arrAnh[i] = new Image(); //đối tượng kiểu ảnh
-   arrAnh[i].src = 'image/anh' + i + '.jpg';
-   }
-   document.getElementById('anhdep').src = arrAnh[0].src;
-  }
-  
-  function nextAnh(){
-  if(currentIndex < arrAnh.length - 1){
-   currentIndex++;
-  }else{
-   currentIndex = 0;
-  }
-  document.getElementById('anhdep').src = arrAnh[currentIndex].src;
-}
-  
-  function backAnh(){
-    if(currentIndex > 0){
-     currentIndex--; 
-    }else{
-      currentIndex = arrAnh.length - 1;
+<body>
+    <form action="">
+    <input type="file" id="file" onchange="change_input(this.files);">
+    </form>
+    <div id="ketqua"></div>
+    <script>
+        function change_input(file){
+          console.log(file);
+          //alert('tên file là: ' + file[0].name);
+          for(let i of file){
+            document.getElementById('ketqua').innerHTML += i.name + ' ' + i.size + "<br>";
+          }
     }
-    document.getElementById('anhdep').src = arrAnh[currentIndex].src;
-  }
-</script>
+    
+    </script>
 </body>
 </html>
