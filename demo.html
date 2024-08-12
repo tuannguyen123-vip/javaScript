@@ -4,54 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <div class="container">
+    <form action="kiemtra1.php" method="get" onsubmit="return valform();">
+    <label for="">Ho va ten</label>
+    <input type="text" id="name">
+    <div class="erro-no" id="erro-no"></div>
+    <label for="">Tuoi</label>
+    <input type="text" id="Tuoi">
+    <div class="errotuoi" id="errotuoi"></div>
+    <label for="">Email</label>
+    <input type="text" id="Email">
+    <label for="">Password</label>
+    <input type="password" id="password">
+    <label for="">Nhap lai password</label>
+    <input type="password" id="nhaplaipassword">
+    <input type="submit"  value="submit">
+</form>
+    </div>
 </head>
 <body>
-    <div class="item" id="red"></div>
-    <div class="item" id="yellow"></div>
-    <div id="black"></div>
-    <div id="pink"></div>
-    <button id="bt">Click here</button>
-    <img id="image" onmouseover="imageOnmouseover">
-<script>
-function imageOnmouseover(){
-    document.getElementById('').src = 'tải xuống.jpeg';
-}
-function imageOnumesout(){
-    document.getElementById().src = 'tải xuống (1).jpeg';
-}
- //gọi đến thẻ button qua bộ chọn, thêm dự kiện onclick
- //Cách thêm sự kiện qua addEventListener
- document.querySelector('#bt').addEventListener('click',thongbao);
- function thongbao(){
- //gọi đến tất cả các thẻ qua tên thẻ
-var arr = document.getElementsByTagName('div');
-//duyệt đến tất cả các thể div
-for(let i of arr){
-//thêm style cho thẻ div
-i.style.background = i.id;
-i.style.width = '50px';
-i.style.height = '50px';
-}
-//Thay đổi class của thẻ
-document.querySelector('#red').classList.toggle('active');
-}
+    <style>
+     .container{
+     display: block;
+     }
+     
+    </style>
+    <script>
+   
+   function valform(){
+    var name = document.getElementById('name');
+    var errono = document.getElementById('erro-no');
+    var tuoi = document.getElementById('tuoi');
+    var errotuoi = document.getElementById('errotuoi');
+    var filer = document.getElementById('Email');
+    if(name.value.trim() === ''){
+        //  alert('Ten khong duoc de trong??');
+         //Thông báo để bên cạnh thẻ
+         errono.innerHTML = '* Ten khong nhap day du';
+         return false;
+        }
+         errono.innerHTML = '';
+        return true;
+    if(tuoi.value == '' || isNaN(tuoi.value).innerHTML ){
+        
+    }
+    if(email.value = '' || email.value){
 
-// document.querySelector('#bt').onclick = function(){
-//  //gọi đến tất cả các thẻ qua tên thẻ
-// var arr = document.getElementsByTagName('div');
-// //duyệt đến tất cả các thể div
-// for(let i of arr){
-// //thêm style cho thẻ div
-// i.style.background = i.id;
-// i.style.width = '50px';
-// i.style.height = '50px';
-// }
-// //Thay đổi class của thẻ
-// document.querySelector('#red').classList.toggle('active');
-// }
-
-// Thêm class vào thẻ
-document.querySelector('#red').classList.add('item1');
-</script>
+    }
+    }
+    </script>
 </body>
 </html>

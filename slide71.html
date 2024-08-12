@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input-group{
+            margin-bottom: 20px;
+        }
+        label{
+            min-width: 120px;
+            display: inline-block;
+        }
+        .erro{
+            color: red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <form action="ketqua.php" onsubmit="return valForm()">
+        <div class="input-group">
+            <label for="">Họ và tên</label>
+            <input type="text" id="hoten" onchange="change_ten();">
+            <div class="erro" id="error-name"></div>
+        </div>
+        <div class="input-group">
+            <label for="">Tuổi</label>
+            <input type="text" id="tuoi">
+            <div class="erro" id="error-tuoi"></div>
+        </div>
+        <div class="input-group">
+        <label for="">Email</label>
+        <input type="text" id="email">
+        <div class="erro" id="error-mail"></div>
+        </div>
+        <div class="input-group">
+        <label for="">password</label>
+        <input type="password" id="password">
+        <div class="erro" id="error-password"></div>
+        </div>
+        <div class="input-group">
+        <label for="">Nhập lại password</label>
+        <input type="password" id="nhaplai">
+        <div class="erro" id="error-nhaplai"></div>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+    <script>
+         var hoten = document.getElementById('hoten');
+         var tuoi = document.getElementById('tuoi');
+        function change_ten(){
+            if(hoten.value == ''){
+                document.getElementById('error-name').innerHTML = '*Tên không được để trống';
+            }else{
+                document.getElementById('error-name').innerHTML = '';
+            }
+        }
+        function change_tuoi(){
+            if(tuoi.value == ''){
+            document.getElementById('error-tuoi ')
+            }
+        }
+         function valForm(){
+            if(hoten.value == ''){
+                //alert('tên không được để trống')
+                //thông báo lỗi để bên cạnh thẻ
+                document.getElementById('error-name').innerHTML = '* Tên không được để trống';
+                return false;
+            }
+            if(tuoi.value == '' || isNaN(tuoi.value) || tuoi.value <= 0){
+                //thông báo lỗi để bên cạnh thẻ
+                document.getElementById('error-tuoi').innerHTML = '* Tuổi phải là số dương';
+                return false;
+            }
+            //cách 1 kiểm lỗi mail
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            var email = document.getElementById('email');
+            if(email.value == '' || !filter.test(email.value)){
+                document.getElementById('error-mail').innerHTML = 'Email không được để trống, mail phải có @ và .'
+                return false;
+            }
+            //cách 2 kiểm lỗi mail
+            var email = document.getElementById('email');
+            if(email.value == '' || !email.value.includes('@') || !email.value.includes('.')){
+                document.getElementById('error-mail').innerHTML = 'Email không được để trống, mail phải có @ và .';
+                return false;
+            }
+            var password = document.getElementById('password');
+            if(password.value == '' || password.value.lenght < 6){
+                document.getElementById('error-password').innerHTML = 'password phải có ít nhất 6 ký tự';
+                return false;
+            }
+            var nhaplai = document.getElementById('nhaplai');
+            if(nhaplai.value == '' || nhaplai.value != password.value){
+                document.getElementById('error-nhaplai').innerHTML = 'password nhập lại phải giống password cũ';
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

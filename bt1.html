@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-        .content {
-            display: none;
-        }
-        .content.active {
-            display: block;
+    <title>Document</title>
+    <style>
+        div{
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        margin-left: 200px;
         }
     </style>
 </head>
 <body>
-    <h4 class="title">Tiêu đề 1</h4>
-    <div class="content">Nội dung</div>
-    <h4 class="title">Tiêu đề 2</h4>
-    <div class="content">Nội dung</div>
-    <h4 class="title">Tiêu đề 3</h4>
-    <div class="content">Nội dung</div>
-
-<script>
-    const arrTile = document.querySelectorAll(".title");
-    const openText = document.querySelectorAll(".content")
-    arrTile.forEach((el)=>{
-        el.addEventListener("click", (e) =>{
-            console.log(el.nextElementSibling);
-            xoa();
-            el.nextElementSibling.classList.toggle("active");
-        })
-    })
-    function xoa(){
-        openText.forEach(){
-            ele.classList.remove("active");
+    <button onclick="toTheRight()">Go rich</button>
+    <div id="block"></div>
+    <script>
+        function toTheRight(){
+            let b = document.getElementById("block");
+            let x = 0;
+            setInterval(function(){
+                if(x === 600){
+                clearInterval();
+                }else{
+                    x++;
+                    b.style.left = x + "px";
+                }
+            }, 2);
         }
-    }
-</script>
+    </script>
 </body>
 </html>
