@@ -6,17 +6,26 @@
     <title>Document</title>
 </head>
 <body>
+    <label id="pro" data-price="1950">Iphone 9</label>
+    <input id="gty" type="number">
+    <button onclick="hienthi()">OK</button>
+    <hr>
+    <h3>Name: <span id="name">?</span></h3>
+    <h3>Amount: <span id="amount">?</span></h3>
     <script>
-    function mathang(name, model, cost, quantity){
-     this.name = name,
-     this.model = model,
-     this.cost = cost,
-     this.quantity = quantity
-    } 
-    mathang[1] = new mathang('Quần Âu', 'Mẫu mới', 200.000, 20);
-    mathang[2] = new mathang('Quần Bò', 'Mẫu mới', 500.000, 10);
-    mathang[3] = new mathang('Quần Sóc', 'Mẫu mới', 300.000, 50);
-    console.log('Số lượng mặt hàng 2 là: '+ mathang[2].quantity);
+    function hienthi(){
+    var pro = document.getElementById("pro");
+    var gty = document.getElementById("gty");
+
+    var name = pro.innerText;
+    var price =  parseFloat(pro.getAttribute("data-price"));
+
+    var quantity = parseInt(gty.value);
+    var amount = price * quantity;
+
+    document.getElementById("name").innerText = name;
+    document.getElementById("amount").innerText = amount.toFixed(2);
+    }
     </script>
 </body>
 </html>

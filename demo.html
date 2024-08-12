@@ -6,19 +6,47 @@
     <title>Document</title>
 </head>
 <body>
-    <script type="text/javascript">
-    var x = prompt('Nhap vao mot so: ');
-    var mod = x%2; //trả về số dư
-    switch(mod){
-        case 0:
-            alert(x + 'là số chẵn');
-            break;
-        case 1:
-            alert(x + 'không phải số chẵn');
-            break;
-        default:
-        alert(x + 'không phải là số')
-          break;
+    <div id="kindofhoa">
+        <p class="hoa" id="hoa1">Lan</p>
+        <p class="hoa" id="hoa2">Hồng</p>
+        <p id="hoa3">Cúc</p>
+        <p id="hoa4">Huệ</p>
+        <input type="text" name="ten" placeholder="họ và tên">
+        <button id="thongbao"></button>
+    </div>
+    <script>
+    //truy xuất đến thẻ p có id là hoa1 lấy từng cái
+    console.log(document.getElementById('hoa1'));
+    //trả về mảng gồm các phần tử có class là hoa trả về tất cả      
+    console.log(document.getElementsByClassName('hoa'));
+    //trả về mảng gồm các phần tử có trong thẻ p
+    console.log(document.getElementsByTagName('p'));
+    //trả về mảng gồm các phần tử có name là ten
+    console.log(document.getElementsByName('ten'));
+    //trả về phần tử
+    console.log(document.querySelector('#hoa1'));
+    //trả về mảng gồm các phần tử có class là hoa 
+    console.log(document.querySelectorAll('.hoa'));
+    
+    //Thông báo hoa hồng
+    //Xem các node con của phần tử
+    console.log(document.getElementById('kindofhoa').childNodes);
+    
+    alert(document.getElementById('hoa2').childNodes[0].nodeValue);
+    
+    console.log(document.getElementById('kindofhoa').childNodes[3].firstChild);
+    
+    //Thêm một node mới vào tài liệu, kết hợp 2 phương thức createElement và
+    var newElement = document.createElement('p'); //Tạo thẻ mới
+    text = document.createTextNode('Hello'); //Tạo 1 nod text
+    newElement.appendChild(text); //Thêm node text vào node p
+    document.body.appendChild(newElement); //Thêm node p vào node body
+
+    //Xóa node dùng removeChild
+    document.getElementById('kindofhoa').removeChild(hoa3);
+    //Cách 2: Tạo sự kiện
+    document.getElementById('thongbao').onclick = function(){
+        alert('Xin chào');
     }
     </script>
 </body>
