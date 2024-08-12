@@ -6,48 +6,52 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="kindofhoa">
-        <p class="hoa" id="hoa1">Lan</p>
-        <p class="hoa" id="hoa2">Hồng</p>
-        <p id="hoa3">Cúc</p>
-        <p id="hoa4">Huệ</p>
-        <input type="text" name="ten" placeholder="họ và tên">
-        <button id="thongbao"></button>
-    </div>
-    <script>
-    //truy xuất đến thẻ p có id là hoa1 lấy từng cái
-    console.log(document.getElementById('hoa1'));
-    //trả về mảng gồm các phần tử có class là hoa trả về tất cả      
-    console.log(document.getElementsByClassName('hoa'));
-    //trả về mảng gồm các phần tử có trong thẻ p
-    console.log(document.getElementsByTagName('p'));
-    //trả về mảng gồm các phần tử có name là ten
-    console.log(document.getElementsByName('ten'));
-    //trả về phần tử
-    console.log(document.querySelector('#hoa1'));
-    //trả về mảng gồm các phần tử có class là hoa 
-    console.log(document.querySelectorAll('.hoa'));
-    
-    //Thông báo hoa hồng
-    //Xem các node con của phần tử
-    console.log(document.getElementById('kindofhoa').childNodes);
-    
-    alert(document.getElementById('hoa2').childNodes[0].nodeValue);
-    
-    console.log(document.getElementById('kindofhoa').childNodes[3].firstChild);
-    
-    //Thêm một node mới vào tài liệu, kết hợp 2 phương thức createElement và
-    var newElement = document.createElement('p'); //Tạo thẻ mới
-    text = document.createTextNode('Hello'); //Tạo 1 nod text
-    newElement.appendChild(text); //Thêm node text vào node p
-    document.body.appendChild(newElement); //Thêm node p vào node body
+    <div class="item" id="red"></div>
+    <div class="item" id="yellow"></div>
+    <div id="black"></div>
+    <div id="pink"></div>
+    <button id="bt">Click here</button>
+    <img id="image" onmouseover="imageOnmouseover">
+<script>
+function imageOnmouseover(){
+    document.getElementById('').src = 'tải xuống.jpeg';
+}
+function imageOnumesout(){
+    document.getElementById().src = 'tải xuống (1).jpeg';
+}
+ //gọi đến thẻ button qua bộ chọn, thêm dự kiện onclick
+ //Cách thêm sự kiện qua addEventListener
+ document.querySelector('#bt').addEventListener('click',thongbao);
+ function thongbao(){
+ //gọi đến tất cả các thẻ qua tên thẻ
+var arr = document.getElementsByTagName('div');
+//duyệt đến tất cả các thể div
+for(let i of arr){
+//thêm style cho thẻ div
+i.style.background = i.id;
+i.style.width = '50px';
+i.style.height = '50px';
+}
+//Thay đổi class của thẻ
+document.querySelector('#red').classList.toggle('active');
+}
 
-    //Xóa node dùng removeChild
-    document.getElementById('kindofhoa').removeChild(hoa3);
-    //Cách 2: Tạo sự kiện
-    document.getElementById('thongbao').onclick = function(){
-        alert('Xin chào');
-    }
-    </script>
+// document.querySelector('#bt').onclick = function(){
+//  //gọi đến tất cả các thẻ qua tên thẻ
+// var arr = document.getElementsByTagName('div');
+// //duyệt đến tất cả các thể div
+// for(let i of arr){
+// //thêm style cho thẻ div
+// i.style.background = i.id;
+// i.style.width = '50px';
+// i.style.height = '50px';
+// }
+// //Thay đổi class của thẻ
+// document.querySelector('#red').classList.toggle('active');
+// }
+
+// Thêm class vào thẻ
+document.querySelector('#red').classList.add('item1');
+</script>
 </body>
 </html>

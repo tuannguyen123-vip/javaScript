@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title><style>
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <label id="pro" data-price="1950">Iphone 9</label>
-    <input id="gty" type="number">
-    <button onclick="hienthi()">OK</button>
-    <hr>
-    <h3>Name: <span id="name">?</span></h3>
-    <h3>Amount: <span id="amount">?</span></h3>
-    <script>
-    function hienthi(){
-    var pro = document.getElementById("pro");
-    var gty = document.getElementById("gty");
+    <h4 class="title">Tiêu đề 1</h4>
+    <div class="content">Nội dung</div>
+    <h4 class="title">Tiêu đề 2</h4>
+    <div class="content">Nội dung</div>
+    <h4 class="title">Tiêu đề 3</h4>
+    <div class="content">Nội dung</div>
 
-    var name = pro.innerText;
-    var price =  parseFloat(pro.getAttribute("data-price"));
-
-    var quantity = parseInt(gty.value);
-    var amount = price * quantity;
-
-    document.getElementById("name").innerText = name;
-    document.getElementById("amount").innerText = amount.toFixed(2);
+<script>
+    const arrTile = document.querySelectorAll(".title");
+    const openText = document.querySelectorAll(".content")
+    arrTile.forEach((el)=>{
+        el.addEventListener("click", (e) =>{
+            console.log(el.nextElementSibling);
+            xoa();
+            el.nextElementSibling.classList.toggle("active");
+        })
+    })
+    function xoa(){
+        openText.forEach(){
+            ele.classList.remove("active");
+        }
     }
-    </script>
+</script>
 </body>
 </html>

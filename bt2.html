@@ -3,69 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Document</title>
     <style>
-        table { width: 100%; border-collapse: collapse; }
-        td { border: 1px solid #ddd; padding: 8px; }
-        th { background-color: #f4f4f4; }
-    </style>
+        body{
+        box-sizing: border-box;
+        }
+        
+        table{
+        display: block;
+         width: 1000px;
+         margin: 20px auto;
+         border-collapse: collapse;
+         margin-left: 580px;
+        }
+        td{
+            padding: 5px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+       </style>
 </head>
 <body>
-    <h2>Danh mục hàng hóa</h2>
-    <table id="product-list">
-        <tr>
-            <td>iPhone 12</td>
-            <td>$100</td>
-            <td><button onclick="them(this)">Add</button></td>
-        </tr>
-        <tr>
-            <td>Chuột</td>
-            <td>$200</td>
-            <td><button onclick="them(this)">Add</button></td>
-        </tr>
+    <table align="center">
     
-    </table>
+    <tr>
+    <td><button onclick="mark(0)"></button></td>
+    <td><button onclick="mark(1)"></button></td>
+    <td><button onclick="mark(2)"></button></td>
+    </tr>
 
-    <h2>Giỏ hàng của bạn</h2>
-    <table id="cart">
-        <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Action</th>
-        </tr>
+ <tr>
+    <td><button onclick="mark(3)"></button></td>
+    <td><button onclick="mark(4)"></button></td>
+    <td><button onclick="mark(5)"></button></td>
+ </tr>
+    
+    <tr>
+        <td><button onclick="mark(6)"></button></td>
+    <td><button onclick="mark(7)"></button></td>
+    <td><button onclick="mark(8)"></button></td>
+    </tr>
+
     </table>
-    <p>Tổng tiền: $<span id="tong">0</span></p>
 
     <script>
- 
-        function them(button) {
-            var row = button.parentElement.parentElement.cloneNode(true); 
-            var btnXoa = row.getElementsByTagName("button")[0];
-            btnXoa.innerText = "Remove"; 
-            btnXoa.setAttribute('onclick', 'xoa(this)'); 
-            document.getElementById("cart").appendChild(row); 
-            tinhTong(); 
-        }
+        var flag = true;
+        var count = 0;
 
-        function xoa(button) {
-            var row = button.parentElement.parentElement;
-            document.getElementById("cart").removeChild(row); 
-            tinhTong(); // Update total
-        }
-
-        function tinhTong() {
-            var cart = document.getElementById("cart");
-            var rows = cart.getElementsByTagName("tr");
-            var tong = 0;
-            
-            for (var i = 1; i < rows.length; i++) { 
-                var cells = rows[i].getElementsByTagName("td");
-                var price = cells[1].innerText.substr(1); 
-                tong += parseFloat(price); 
-            }
-            
-            document.getElementById("tong").innerText = tong.toFixed(2); 
-        }
+        function mark(index){
+        var buttons = document.getElementsByTagName("button");
+        var button = buttons[index];
+        button.innerText = flag ? "X" : "O";
+        button.style.backgroundColor = flag ? "aqua" : "yellow";
+        button.setAttribute("disabled","true");
+        flag =!flag;
+        count++;     
+        if(count == 9){
+        alert("Game over???");
+        location.reload();
+        }    
+    }
     </script>
 </body>
 </html>

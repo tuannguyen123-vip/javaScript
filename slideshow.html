@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body onload="loadAnh();">
+    <img id="anh" src="image/anh0.jpg" alt="">
+    <button onclick="first();" type="button">First</button>
+    <button onclick="backAnh();" type="button">Back</button>
+    <button onclick="nextAnh();" type="button">Next</button>
+    <button onclick="autoplay();" type="button">Autoplay</button>
+    <button onclick="stop();" type="button">Stop</button>
+    <button onclick="last();" type="button">Last</button>
+    <script>
+        //Bước 1 chuẩn bị các ảnh đặt tên theo tứ tự từ 0-n,
+        //các ảnh phải có cùng đuôi .jpg hoặc png
+        var arrAnh = new Array(); //Tạo biến mảng để lưu các bức ảnh
+        function loadAnh(){
+            for(let i =0; i<6;i++){
+                arrAnh[i] = new Image(); // đối tượng kiểu ảnh
+                arrAnh[i].src = 'image/anh' + i + '.jpg';
+               // console.log(arrAnh[i].src);
+            }
+        }
+        var currencyIndex; //Biến chỉ số hiện tại của ảnh
+        function nextAnh(){
+            if(currencyIndex < arrAnh.length - 1){
+                currencyIndex++;
+            }else{
+                currencyIndex = 0;
+            }
+            //thay đổi lại đường dẫn ảnh hiện tại
+            document.getElementById('anh').src = arrAnh[currencyIndex].src;
+        }
+        function backAnh(){
+            if(currencyIndex > 0){
+                currencyIndex--;
+            }else{
+                currencyIndex = arrAnh.length - 1;
+            }
+            //thay đổi lại đường dẫn ảnh hiện tại
+            document.getElementById('anh').src = arrAnh[currencyIndex].src;
+        }
+        var t;
+        //ảnh tự động chạy khi load trang
+        t = setInterval('nextAnh()',1000);
+        
+        function autoplay(){
+            //lặp đi lặp lại hàm nextAnh
+            t = setInterval('nextAnh()',1000);
+        }
+        function stop(){
+            //lặp đi lặp lại hàm nextAnh
+            clearInterval(t);
+        }
+        function first(){
+            currencyIndex = 0;
+            document.getElementById('anh').src = arrAnh[currencyIndex].src;
+        }
+        function last(){
+            currencyIndex = arrAnh.length - 1;
+            document.getElementById('anh').src = arrAnh[currencyIndex].src;
+        }
+
+    </script>
+</body>
+</html>
