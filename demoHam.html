@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="xinchao();">Xin chào</button> //Thêm nút bấm để hiện thông báo hello
+   <input type="button" value="game" onclick="hienthianh('game')">
+   <input type="button" value="da banh" onclick="hienthianh('football')">
+   <script>
+    //Xây dựng hàm
+    function xinchao(){
+        alert('Xin chào bạn'); //Nội dung hàm
+    }
+    //  xinchao(); //Gọi hàm ra
+
+    // //Hàm chứa tham số
+    //  function tong(x,y){ 
+    //      document.write(x+y);
+    // }
+    // tong(8,5);
+    
+    // // Kiểm tra lựa chọn ok hoặc cancel
+    //   var ok = confirm("Bạn chắc chắn muốn xóa chứ?");
+    //   if(ok == true){
+    //   doSometing();
+    //    }
+    //   else{
+    //   doAnythingElse();
+    //   }
+     
+      function hienthianh(dovat){
+      if(dovat == 'game'){
+        document.write('<img src ="lab3/z5622991546302_4aeedfe3c4420656f5dd03635db9a76f.jpg">');
+      }else{
+        document.write('<img src ="lab3/z5622991566875_511b52e82c8e73fae3b360a9561c3718.jpg">');
+      }
+      }
+    </script>
+</body>
+</html>

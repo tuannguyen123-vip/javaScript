@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trò chơi kéo búa bao</title>
+    <style>
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        var arr = ['Kéo', 'Búa', 'Bao'];
+
+        function getValue(c) {
+            var s = Math.floor(Math.random() * 3);
+            document.getElementById("userChoice").innerHTML = "Bạn chọn: " + arr[c];
+            document.getElementById("computerChoice").innerHTML = "Máy chọn: " + arr[s];
+            
+            var result;
+            if (c === s) {
+                result = "Hòa nhau!";
+            } else if ((c === 0 && s === 2) || (c === 1 && s === 0) || (c === 2 && s === 1)) {
+                result = "Bạn thắng!";
+            } else {
+                result = "Bạn thua!";
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
 </head>
 <body>
-    <script type="text/javascript">
-        let theList = ['Lauren', 'Kevin', true, 35, null, undefined, ['one', 'two']];
-        </script>
+    <h1>Trò chơi kéo búa bao</h1>
+    <input type="button" value="kéo" onclick="getValue(0);" />
+    <input type="button" value="Búa" onclick="getValue(1);" />
+    <input type="button" value="Bao" onclick="getValue(2);" />
+    <div id="userChoice"></div>
+    <div id="computerChoice"></div>
+    <div id="result"></div>
 </body>
 </html>
