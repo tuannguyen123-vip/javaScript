@@ -7,26 +7,16 @@
 </head>
 <body>
     <script>
-     var a = prompt('Nhập số a:');
-     var b = prompt('Nhập số b:');
-     var c = prompt('Nhập toán tử: ');
-     switch (c){
-        case "+":
-            alert('kết quả là:'+(parseFloat(a)+parseFloat(b)));
-            break;
-            case "-":
-            alert('kết quả là:'+(parseFloat(a)-parseFloat(b)));
-            break;
-            case "*":
-            alert('kết quả là:'+(parseFloat(a)*parseFloat(b)));
-            break;
-            case "/":
-            alert('kết quả là:'+(parseFloat(a)/parseFloat(b)));
-            break;
-            default:
-            alert('Không phải toán tử');    
-            break;
-    }
+    function mathang(name, model, cost, quantity){
+     this.name = name,
+     this.model = model,
+     this.cost = cost,
+     this.quantity = quantity
+    } 
+    mathang[1] = new mathang('Quần Âu', 'Mẫu mới', 200.000, 20);
+    mathang[2] = new mathang('Quần Bò', 'Mẫu mới', 500.000, 10);
+    mathang[3] = new mathang('Quần Sóc', 'Mẫu mới', 300.000, 50);
+    console.log('Số lượng mặt hàng 2 là: '+ mathang[2].quantity);
     </script>
 </body>
 </html>

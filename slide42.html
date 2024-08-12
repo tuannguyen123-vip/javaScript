@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            width: 200px;
+        }
+        #ketqua{
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            width: 500px;
+            padding: 20px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    Tên sv:
+    <input type="text" id="tensv">
+    Điểm 1:
+    <input type="number" min="0" max="10" step="0.25" id="diem1">
+    Điểm 2:
+    <input type="number" min="0" max="10" step="0.25" id="diem2">
+    Điểm 3:
+    <input type="number" min="0" max="10" step="0.25" id="diem3">
+    <button onclick="thongbao();">Thông báo</button>
+    <div id="ketqua"></div>
+    <script>
+        function thongbao(){
+            var sv = new Object(); // Khai báo một đối tượng mới
+            // lấy giá trị của thẻ input có id là tensv
+            sv.tensv = document.getElementById('tensv').value;
+            sv.diem1 = document.getElementById('diem1').value;
+            sv.diem2 = document.getElementById('diem2').value;
+            sv.diem3 = document.getElementById('diem3').value;
+            sv.tbc = (Number(sv.diem1) + Number(sv.diem2) + Number(sv.diem3))/3;
+            if(sv.tbc >=5){
+                //Đậu
+                // gọi đến thẻ div có id là ketqua, thêm nội dung vào thẻ đó
+                document.getElementById('ketqua').innerHTML = 'Tên ' + sv.tensv +'<br>' + 'dtc: ' +sv.tbc.toFixed(2)+'<br>' + 'chúc mừng bạn đậu';
+            }else{
+                //Rớt
+                document.getElementById('ketqua').innerHTML = 'Tên ' + sv.tensv + '<br>' + 'dtc: ' +sv.tbc.toFixed(2) +'<br>' + 'bạn bị rớt';
+            }
+        }
+    </script>
+</body>
+</html>

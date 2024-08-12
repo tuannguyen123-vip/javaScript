@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="xinchao();">
+        Xin chào
+    </button>
+    <button onclick="stop();">Dừng</button>
+    <div id="ketqua"></div>
+    <script>
+        let x;
+        function xinchao(){
+            //công việc được thực hiện sau khoảng thời gian 2000ms
+           // var t = setTimeout("alert('xin chào');",2000);
+            //công việc sẽ lặp đi lặp lại sau khoảng thời gian 2000ms 
+            x = setInterval("document.getElementById('ketqua').innerHTML += 'Xin chào';",2000)
+        }
+        function stop(){
+            //hủy bỏ lệnh lặp đi lặp lại ở trên
+            clearInterval(x);
+        }
+    </script>
+</body>
+</html>

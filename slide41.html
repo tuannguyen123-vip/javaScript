@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //cách 1
+        let sv1 = {
+            masv: 'ph12345',
+            ten: 'Tuấn',
+            diem1: 6,
+            diem2: 9,
+            diem3: 7,
+            tbc: function(){
+                //trả về kết quả
+                return (sv1.diem1 + sv1.diem2 + sv1.diem3)/3;
+            }
+        }
+        let sv2 = {
+            masv: 'ph12346',
+            ten: 'Trang',
+            diem1: 8,
+            diem2: 7,
+            diem3: 7,
+            tbc: function(){
+                //trả về kết quả
+                return (sv1.diem1 + sv1.diem2 + sv1.diem3)/3;
+            }
+        }
+        document.write('Tên là: ' + sv1.ten + ' Điểm TBC ' + sv1.tbc() +'<br>');
+
+        //cách 2
+        function Sv(masv,ten,diem1,diem2,diem3){
+          this.masv = masv,
+          this.ten = ten,
+          this.diem1 = diem1,
+          this.diem2 = diem2,
+          this.diem3 = diem3
+        }
+        let Sv1 = new Sv("ph12345","Tuấn",5,7,9);
+        let Sv2 = new Sv("ph12356","Trang",6,8,9);
+        let Sv3 = new Sv("ph12350","hà",6,7,9);
+        document.write('Tên các bạn sv là: ' + Sv1.ten + Sv2.ten + Sv3.ten +"<br>");
+
+        //Cách 3 kết hợp đối tượng và mảng
+        function SV(masv,ten,diem1,diem2,diem3){
+          this.masv = masv,
+          this.ten = ten,
+          this.diem1 = diem1,
+          this.diem2 = diem2,
+          this.diem3 = diem3
+        }
+        SV[0] = new Sv("ph12345","Tuấn",5,7,9);
+        SV[1] = new Sv("ph12356","Trang",6,8,9);
+        SV[2] = new Sv("ph12350","hà",6,7,9);
+        document.write('Tên các bạn sv là: ')
+        for (let i in SV){
+            document.write(SV[i].ten);
+        }
+
+
+    </script>
+</body>
+</html>

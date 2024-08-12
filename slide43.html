@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openWin();">Mở cửa sổ</button>
+    <button onclick="closeWin();">Đóng cửa sổ</button>
+    <button onclick="check();">Kiem tra</button>
+    <script>
+
+       let newWin; 
+        function openWin(){
+            var width, height;
+            var isIE = false || document.documentMode;
+            if(isIE){
+             width = 100;
+             height = 100;
+            }else{
+             width = 150;
+            height = 150;
+            }
+            var chung = "toolbar = yes, menubar = yes, width=" + width + "height=" + height; 
+           newWin = window.open('https://www.dienmayxanh.com/',"Điện máy xanh",chung);
+
+        }
+        function closeWin(){
+            if(newWin){
+                newWin.close();
+            }
+        }
+        function check(){
+            if(newWin){
+            if(newWin.closed){
+             alert('Cửa sổ đã đóng');
+            }else{
+            alert('Cửa sổ đang mở');
+            }
+            }else{
+            alert('Chưa mở cửa sổ');
+            }
+        }
+        console.dir(navigator);
+        alert(navigator.appVersion);
+    </script>
+</body>
+</html>

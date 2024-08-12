@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button{
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <script type="text/javascript">
-    var x = 10 + Math.round(5* Math.random());
-    var a = prompt("Số nhập vào: ");
-    if(a == x){
-      alert("Chúc mừng, bạn đã đoán đúng");
-    }else if(a > x){
-        alert("Giá trị của bạn lớn hơn số bí mật");
-    }else{
-    alert("Giá trị của bạn nhỏ hơn số bí mật");
+    <button onclick="openwin();">Mở cửa sổ mới</button>
+    <button onclick="closewin();">Đóng cửa sổ mới</button>
+    <button onclick="kiemtra();">Kiểm tra cửa sổ đóng hay chưa</button>
+
+    <script>
+    let newwin;
+    function openwin(){
+     newwin = window.open('https://thanhnien.vn/', "Báo Thanh niên", "width = 800px, height = 800px")
+    }
+    function closewin(){
+        newwin.close();
+    }
+    function kiemtra(){
+        if(newwin && !newwin.closed){
+           alert('Cửa sổ mới vẫn mở')
+        }else{
+            alert('Cửa sổ mới đã đóng')
+        }
     }
     </script>
 </body>
