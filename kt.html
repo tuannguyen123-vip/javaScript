@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đặt hàng</h2>
+    <form action="" id="orderFrom" onsubmit="return valForm()">
+     <label for="ten">Tên khách hàng</label>
+     <input type="text" id="ten" name="ten">
+     <span id="nameErro" class="erro"></span><br><br>
+
+    <label for="sdt">Số điện thoại</label>
+    <input type="number" id="sdt" name="sdt">
+    <span id="phoneErro" class="erro"></span><br><br>
+     
+    <label for="sanpham">Chọn sản phẩm</label>
+    <select id="sanpham" name="sanpham">
+        <option value="">Chọn sản phẩm</option>
+        <option value="Ip">Iphone</option>
+        <option value="Tv">TV</option>
+        <option value="dieuhoa">Điều hòa</option>
+    </select>
+    <span id="sanphamErro" class="erro"></span><br><br>
+
+    <label for="diachi">Nơi nhận hàng</label><br>
+    <label id="diachi"><input type="radio" name="tp" onclick="">Ngoại thành</label>
+    <label id="diachi"><input type="radio" name="tp" onclick="">Nội thành</label>
+    <span id="diachiErro" class="erro"></span><br><br>
+
+    <label id="gia">Đơn giá</label>
+    <input type="text" id="gia" name="gia">
+    <span id="giaErro" class="erro"></span><br><br>
+
+     <label for="phivanchuyen">Phí vận chuyển</label>
+     <input type="text" id="phivanchuyen" name="phivanchuyen">
+     <span id="phivanchuyenErro" class="erro"></span><br><br>
+     
+     <input type="submit" value="submit"> 
+   </form>
+   <script>
+    var ten = document.getElementById('ten');
+    var sdt = document.getElementById('sdt');
+    var sanpham = document.getElementById('sanpham');
+    var diachi = document.querySelector('input[name="tp"]:checked');
+    var gia = document.getElementById('gia');
+    let giaValue = 0;
+   function valForm(){
+
+   if(ten.value == ''){
+   document.getElementById('nameErro').innerHTML = '*Tên không được để trống';
+   return false;
+   }
+
+   if(sdt.value == ''){
+    document.getElementById('phoneErro').innerHTML = '*Số điện thoại không được để trống';
+    return false;
+   }
+
+   if(sanpham.value == ''){
+   document.getElementById('sanphamErro').innerHTML = '*Sản phẩm không được chọn';
+   return false;
+   }
+
+   if(!diachi){
+   document.getElementById('diachiErro').innerHTML = '*Địa chỉ phải được chọn';
+   return false;
+   }
+
+   if(sanpham.value == 'Ip'){
+   giaValue = 100000;
+   }else if(sanpham === 'Tv'){
+   giaValue = 50000;  
+   }else if(sanpham === 'dieuhoa'){
+   giaValue = 60000;
+  }
+  gia.value = giaValue.toLocaleString() + 'VNĐ';
+   return true;
+}
+   </script>
+
+   <style>
+    label{
+    padding: 5px;
+    margin: 5px;
+    }
+   </style>
+</body>
+</html>
