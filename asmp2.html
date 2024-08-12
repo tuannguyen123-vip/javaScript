@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <nav>
+            <div class="hmenu">
+                <ul class="menu">
+                 <li><a href="trangchu.html" target="page">Trang chủ</a></li>
+                 <li><a href="gioithieu.html" target="page">Giới Thiệu</a></li>
+                 <li><a href="lienhe.html" target="page">Liên hệ</a>
+                <ul>
+            </div>
+        </nav>
+        <article>
+            <iframe src="trangchu.html" 
+            frameborder="1px" 
+            name="page"
+            height="600px"
+            width="100%"
+            scrolling="auto">
+            </iframe>
+        </article>
+        <footer>
+        </footer>
+        <aside class="left">
+            <img src="7041a00e5e1987564641f4213cb73846.jpg" alt="">
+            </aside>
+        <aside class="right">
+            <img src="4defab87bb669dbe3ce8d88d78e6570b.jpg" alt="">
+            </aside>
+        </div>
+        <style>
+        *{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    }
+    body{
+    display: flex;
+    justify-content: center;
+    background-color: #FAFAFA;
+    }
+    .container{
+    width: 800px;
+    height: 1000px;
+    }
+    header{
+    background-image: url("tải\ xuống.jpeg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 250px;
+    }
+    .hmenu{
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .menu{
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    }
+    .menu>li{
+        position: relative;
+       padding: 15px;
+    }
+    .menu>li>a{
+    margin: 20px;
+    color: black;
+    text-decoration: dashed;
+    }
+    .menu>li:hover{
+    background-color: yellow;
+        }
+    .hienanh{
+    width: 500px;
+    height: 300px;
+    margin-left: 240px;
+    }
+    img{
+    width: 300px;
+    height: 200px;
+    }
+    .nut{
+    padding: 10px;
+    padding-left: 350px;
+    }
+    .bam{
+    padding: 5px 5px;
+    }
+    .bam:hover{
+    background-color: aqua;
+    }
+
+        .left, .right {
+            position: absolute;
+            top: 250px; /* Adjust based on header height */
+            width: 200px; /* Adjust width as needed */
+            height: 100%; /* Full height of container */
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            right: 0;
+        }
+        .left img, .right img {
+            width: 200px;
+            height: 600px;
+        }
+    footer{
+    background-image: url("d3f954b51838eddc7989942429db6543.jpg");
+    width: 100%;
+    height: 100px;
+    }
+    #countdown {
+        text-align: center;
+        margin: 20px;
+    }
+    #timer {
+        font-weight: bold;
+        font-size: 20px;
+        color: red;
+    }
+    .product{
+    padding: 5px 5px;
+    }
+   .erro-mua{
+    color: red;
+   }
+        </style>
+</body>
+</html>

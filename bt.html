@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    }
+    .file{
+    margin-bottom: 10px;
+    }
+    .date-time{
+        margin-top: 10px;
+    }
+    #result{
+        border: 2px solid black;
+        margin: 10px 0px;
+        width: 200px;
+        padding: 20px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin-left: 370px; 
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Giải phương trình ax^2 + bx + c = 0</h2>
+        <div class="file">
+        <label for="a">Nhập số a:</label>
+        <input type="number" id="a" min="0" max="10" value="0">
+        </div>
+        <div class="file">
+        <label for="b">Nhập số b:</label>
+        <input type="number" id="b" min="0" max="10" value="0">
+        </div>
+        <div class="file">
+        <label for="c">Nhập số c:</label>
+        <input type="number" id="c" min="0" max="10" value="0">
+        </div>
+        <button onclick="Songaunhien()">Cho Số</button>
+        <button onclick="Ketqua()">Giải</button>
+        <div class="result" id="result"></div>
+        <div class="date-time" id="date-time"></div>
+        </div>
+
+    <script>
+    function Songaunhien(){
+    document.getElementById('a').value = Math.floor(Math.random() * 11);
+    document.getElementById('b').value = Math.floor(Math.random() * 11);
+    document.getElementById('c').value = Math.floor(Math.random() * 11);
+    }    
+
+    function Ketqua(){
+    const a = parseFloat(document.getElementById('a').value);
+    const b = parseFloat(document.getElementById('b').value);
+    const c = parseFloat(document.getElementById('c').value);
+    if(a == 0){
+    alert('a phải khác không');
+    return; 
+    }
+    const ct = b * b - 4 * a * c;
+    let result = '';
+
+    if(ct > 0){
+    const x1 = (-b + Math.sqrt(ct)) / (2 * a);
+    const x2 = (-b + Math.sqrt(ct)) / (2 * a);
+    result = `Phương trinh có hai nghiệm phân biệt: x1 = ${x1}, x2 = ${x2}`;
+    }else if(ct == 0){
+    const x = -b / (2 * a);
+    result = `Phương trình có nghiệm kép: x = ${x}`;
+    }else{
+    result = `Phương trình này vô nghiệm`;
+    }
+document.getElementById('result').innerText = result;    
+}
+
+function hiendatetime(){
+     const now = new Date();
+     const datetime = now.toLocaleDateString() + '' + now.toLocaleTimeString();
+     document.getElementById('date-time').innerText = `Thời gian là: ${datetime}`;
+}
+    hiendatetime();
+    setInterval(hiendatetime, 1000);
+    </script>
+</body>
+</html>

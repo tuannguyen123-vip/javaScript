@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="code.css">
+    <script src="code.js" defer></script>
+</head>
+<body onload="loadAnh();">
+    <div class="container">
+        <article>
+            <img id="anh" src="image/anh0.jpg" alt="" class="hienanh">
+            <div class="nut">
+            <button onclick="first();" type="button" class="bam">First</button>
+            <button onclick="backAnh();" type="button" class="bam">Back</button>
+            <button onclick="nextAnh();" type="button" class="bam">Next</button>
+            <button onclick="autoplay();" type="button" class="bam">Autoplay</button>
+            <button onclick="stop();" type="button" class="bam">Stop</button>
+            <button onclick="last();" type="button" class="bam">Last</button>
+            </div>
+        </article>
+
+        <aside>
+        <form action="check.php" id="chonForm" onsubmit="return varForm()">
+            <h2>Sản phẩm</h2>
+            <div class="product-grid">
+            <div class="product">
+            <img src="images (1).jpeg" alt="">
+            <p>Sản phẩm 1</p>
+            <input type="checkbox" class="buycheck" id="product1">
+            <label for="product1">Chọn để mua</label> 
+            <div class="erro-mua" id="erro-1"></div>
+            </div>
+            <div class="product">
+            <img src="images.jpeg" alt="">
+            <p>Sản phảm 2</p>
+            <input type="checkbox" class="buycheck" id="product2">
+            <label for="product2">Chọn để mua</label>
+            <div class="erro-mua" id="erro-2"></div>
+            </div>
+            <div class="product">
+                <img src="giay1.jpg" alt="">
+                <p>Sản phảm 3</p>
+                <input type="checkbox" class="buycheck" id="product3">
+                <label for="product3">Chọn để mua</label>
+                <div class="erro-mua" id="erro-3"></div>
+                </div>
+                <div class="product">
+                    <img src="giay2.jpg" alt="">
+                    <p>Sản phảm 4</p>
+                    <input type="checkbox" class="buycheck" id="product4">
+                    <label for="product4">Chọn để mua</label>
+                    <div class="erro-mua" id="erro-4"></div>
+                    </div>
+            </div>
+            <input type="submit" value="Thanh toán" class="bam">
+       </form>
+        </aside>
+        <footer>
+            <section id="countdown">
+            <h3>Đồng hồ đếm ngược</h3>
+            <div id="timer"></div>
+            </section>
+        </footer>
+        </div>
+</body>
+</html>

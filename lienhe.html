@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Liên hệ với chúng tôi</h2>
+    <form action="" onsubmit="return valForm()">
+    <div class="input-group">
+    <label for="">Họ tên</label>
+    <input type="text" id="name" placeholder="họ và tên">
+    <div class="erro" id="erro-hoten"></div>
+</div>
+<div class="input-group">
+    <label for="">Số điện thoại</label>
+    <input type="text" id="sdt" placeholder="số điện thoại">
+    <div class="erro" id="erro-sdt"></div>
+</div>
+    <div class="input-group">
+    <label for="">Phản hồi</label>
+    <textarea rows="5" cols="40" id="ld" placeholder="*Lý do"></textarea>
+    <div class="erro" id="erro-lydo"></div>
+    </div>
+<input type="submit" value="Gửi">
+    </form>
+    <img src="nike.jpg" style="margin-left: 150px ;">
+    <script>
+    var hoten = document.getElementById('name');
+     var sdt = document.getElementById('sdt');
+     var ld = document.getElementById('ld');
+     var tn = true;
+     function valForm(){
+
+     if(hoten.value == ''){
+     document.getElementById('erro-hoten').innerHTML = '*Tên không được để trống';
+     return false;
+     }
+     if(sdt.value == ''){
+     document.getElementById('erro-sdt').innerHTML = '*Số điện thoại không được để trống';
+     return false;
+     }
+     if(ld.value == ''){
+     document.getElementById('erro-lydo').innerHTML = '*Bạn cần cung cấp lý do cho chúng tôi';
+     return false;
+     }
+     if(tn){
+     alert('Cảm ơn bạn đã phản hồi!!');
+     }
+     return true;
+     }   
+
+     hoten.addEventListener('input', function(){
+     if(hoten.value !== ''){
+    document.getElementById('erro-hoten').innerHTML = '';
+     }
+     });
+
+     sdt.addEventListener('input', function(){
+     if(sdt.value !== ''){
+     document.getElementById('erro-sdt').innerHTML = '';
+     }
+     });
+     ld.addEventListener('input', function(){
+     if(ld.value !== ''){
+    document.getElementById('erro-lydo').innerHTML = '';
+     }
+     });
+    </script>
+   <style>
+    h2{
+        margin-left: 20px;
+    }
+    form{
+        margin-left: 200px;
+    }
+      .input-group{
+            margin-bottom: 20px;
+        }
+        label{
+            min-width: 120px;
+            display: inline-block;
+        }
+        .erro{
+            color: red;
+            display: inline-block;
+        }
+   </style>
+</body>
+</html>
